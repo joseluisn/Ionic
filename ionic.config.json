@@ -1,0 +1,7 @@
+{
+  "name": "namesJackpot",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
