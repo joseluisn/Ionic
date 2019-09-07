@@ -10,35 +10,40 @@ import {interval, Subscription} from'rxjs';
   export class HomePage {
 
   constructor() {} 
-  names;nameActually:String; 
+  names;nameActually:String;
+  time:number;
   namesIngresed:Array<String>; 
   
 
 //Generate names random 
 setNames(){
+if(this.time<5){
 var nam=Math.floor((Math.random()* this.namesIngresed.length)); 
 this.nameActually=this.namesIngresed[nam]; 
-console.log(this.nameActually) 
+console.log("The names is"+this.nameActually) 
+}else{
+this.nameActually;
 }
+} 
+
 
 //Method by add names and show names of array
 addName(){
+this.time=0;
 this.namesIngresed =this.names.split(",") 
 console.log(this.namesIngresed) 
 this.setNames();
-this.setInterval()
+this.setInterval();
 } 
 //generate names in a determined time
 setInterval(){
-    setInterval(()=>{this.setNames()},2000);
+    setInterval(()=>{this.setNames();this.time++;},2000);
   }
 
 ngOnInit(){
 if(this.namesIngresed != null){
-this.setInterval()
+this.setInterval();
 }
-this.nameActually="";
+this.nameActually;
 } 
-
-
 }
